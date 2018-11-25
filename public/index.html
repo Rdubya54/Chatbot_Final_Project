@@ -12,30 +12,37 @@
     <script defer src="/__/firebase/5.5.8/firebase-firestore.js"></script>
     <script defer src="/__/firebase/5.5.8/firebase-messaging.js"></script>
     <script defer src="/__/firebase/5.5.8/firebase-storage.js"></script>
+    <script defer src="/__/firebase/5.5.8/firebase-database.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="controller.js"></script>
 
     <style>
     </style>
   </head>
-  <body>
+  <body ng-app="app">
 
-    <h1>Hello Firebase World</h1>
-    <script src="app.js">
+    <div id="message" ng-controller="MyCtrl">
+    {{time}}
+    {{something}}
+    </div>
+    <h1>Welcome to MU TECH SUPPORT</h1>
+    <p>You must login with your google account to proceed.</p>
+    
 
-    </script>
+    
+   
+    <button onclick="googleLogin()">Login with Google</button>
 
-    <!-- <button onclick="googleLogin()">Login with Google</button> -->
-
-    <h1 id="title"></h1>
-    <input onchange="updatePost(event)">
-
-    <iframe
-    allow="microphone;"
-    width="350"
-    height="430"
-    src="https://console.dialogflow.com/api-client/demo/embedded/acaa20f9-bfb1-48b3-a056-74177632020b">
-    </iframe>
 
   </body>
 </html>
