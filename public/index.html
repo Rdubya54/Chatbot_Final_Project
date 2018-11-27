@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Login</title>
+    
+    <!-- Imports Bulma components -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">  
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.5.8/firebase-app.js"></script>
@@ -30,12 +33,18 @@
     </style>
   </head>
   <body ng-app="app">
+      <section class="hero is-light is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
 
     <div id="message" ng-controller="MyCtrl">
-    <h1>Welcome to MU TECH SUPPORT</h1>
-    <p>You must login with your google account to proceed.</p>
+    <h1 class="title">Welcome to MU TECH SUPPORT</h1>
+    <h2 class="subtitle">You must login with your google account to proceed.</h2>
 
-    <button ng-click="googleLogin()">Login with Google</button>
+    <button class="button" ng-click="googleLogin()">Login with Google</button>
     </div>
+            </div>
+          </div>
+      </section>
   </body>
 </html>
