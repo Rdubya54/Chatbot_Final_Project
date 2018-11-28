@@ -16,39 +16,14 @@ var app=angular.module('app',['firebase'])
 
         $scope.something="hiii";
         $scope.appointment_text="";
-        // $scope.time="";
-
         
-
-        // const db=firebase.firestore();
-
-        // const productsRef=db.collection('test_database');
-
-        // const query = productsRef.where('price', '>=', 10)
-        // console.log("dumb")
-        // query.get()
-        //     .then(products => {
-
-        //         const list=[];
-
-        //         products.forEach(doc =>{
-        //             data=doc.data()
-        //             console.log("in here")
-        //             console.log(data.time)
-        //             $scope.time=data.time;
-        //             list.push(data.time);
-        //             console.log(list);
-        //             // document.write(data.time + ' at $' + data.time +'<br>')
-        //         })   
-        //         return list;
-            
-        //     }) 
-        // $scope.syncArray=list;
-
+        var today=new Date();
+        var date=today.getFullYear() + "-" + (today.getMonth()+1) + "-" +today.getDate();
+        console.log(date)
         function list(user) {
             return firebase.firestore()
               .collection('test_database')
-              .where('date','==', '2018-11-27T00:46:47-06:00')
+              //.where('time','>', '2018-11-27T00:46:47-06:00')
               //.where('name', '==', 'Tom')
               .get()
               .then(snapshot => {
@@ -57,7 +32,7 @@ var app=angular.module('app',['firebase'])
                 snapshot.forEach(doc => {
                   const data = doc.data()
                   data.id = doc.price;
-                  list.push(data);
+                  list.push(data.time);
                 });
           
                 return list;
@@ -72,15 +47,10 @@ var app=angular.module('app',['firebase'])
             $scope.appointment_text="Hi, " + $scope.name + ", your next appointment is schdueled for " + list[0].date +".";
             $scope.time=list[0].date;
             console.log($scope.time);
+            $scope.times=list;
             $scope.$apply()
           });
             
-
-        // const rootRef=firebase.database().ref().child('angular');
-        // console.log(rootRef)
-        // const ref=rootRef.child('object');
-        // console.log(ref)
-        // this.object=$firebaseObject(ref);
 
         $scope.googleLogin=function(){
             const provider = new firebase.auth.GoogleAuthProvider();

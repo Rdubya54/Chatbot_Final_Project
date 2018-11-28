@@ -58,7 +58,6 @@
 </nav>
       
       <!-- Chatbot -->
-
 <section class="hero is-light is-fullheight">
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -68,6 +67,24 @@
         </h1>   
     <div id="message" ng-controller="MyCtrl">
     {{appointment_text}}
+    <p>
+        Tiger Tech Walk Up Support Hours
+        Monday-Thursday: 8:00 a.m. - 7:00 p.m.
+        Friday: 9:00 a.m. - 6:00 p.m.
+        Saturday: 10:00 a.m. 6:00 p.m.
+        Sunday: Noon - 6:00 p.m.
+        Mizzou Phone Tech Support
+        Monday – Thursday: 7:30 a.m. – 10 p.m.
+        Friday: 7:30 a.m. – 6 p.m.
+        Saturday: 12 p.m. – 6 p.m.
+        Sunday: 12 p.m. – 8 p.m.
+    </p>
+
+    <ul>
+      <li ng-repeat="time in times track by $index">
+        Unavailable appointment: {{time}}
+      </li>
+    </ul>
     </div>
 
     
