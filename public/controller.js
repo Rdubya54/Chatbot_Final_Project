@@ -48,7 +48,8 @@ var app=angular.module('app',['firebase'])
         function list(user) {
             return firebase.firestore()
               .collection('test_database')
-              .where('name', '==', 'Tom')
+              .where('date','==', '2018-11-27T00:46:47-06:00')
+              //.where('name', '==', 'Tom')
               .get()
               .then(snapshot => {
                 const list = [];
@@ -68,7 +69,7 @@ var app=angular.module('app',['firebase'])
 
         list({ uid: 10 }).then((list) => {
             console.log(list);
-            $scope.appointment_text="Hi, your name here, " + "your next appointment is schdueled for " + list[0].date;
+            $scope.appointment_text="Hi, " + $scope.name + ", your next appointment is schdueled for " + list[0].date +".";
             $scope.time=list[0].date;
             console.log($scope.time);
             $scope.$apply()
@@ -89,12 +90,18 @@ var app=angular.module('app',['firebase'])
                 .then(result =>{
                     const user=result.user;
                     //document.write('Hello ' + user.displayName);
+                    localStorage.setItem("user",user.displayName);
+                    // console.log(user.displayName)
+                    // $scope.name=user.displayName;
                     window.location='view_homepage.html';
-                    console.log(user)
+                    
+                    
                 })
                 .catch(console.log)
 
         }
+
+        $scope.name=localStorage.getItem("user");
 
 
     });
