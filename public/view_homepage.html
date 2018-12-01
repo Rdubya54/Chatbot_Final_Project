@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MU Tech Chat</title>
+    <title>MU TechBot</title>
     
     <!-- Imports Bulma components -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <!-- Imports Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
       
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.5.8/firebase-app.js"></script>
@@ -30,6 +32,11 @@
     <script src="controller.js"></script>
 
     <style>
+  .footer {
+            padding: 10px 0;
+            background-color: white;
+}
+   
     </style>
   </head>
   <body ng-app="app">
@@ -40,62 +47,145 @@
 
   <div class="navbar-start">
             <a class="navbar-item" href="view_homepage.html">
-  MU Tech Support
+                <img src="Logo.png" alt="MU TECHBOT">
 </a>
   </div>
 
   <div class="navbar-end">
-
-        <a class="navbar-item is-active" href="view_homepage.html">
-  Chat
-</a>
-        <a class="navbar-item" href="about.html">
-  More Info
-</a>
 
 </div>
 </div>
 </nav>
       
       <!-- Chatbot -->
-<section class="hero is-light is-fullheight">
+
+<section class="hero is-warning is-fullheight">
   <div class="hero-body">
-    <div class="container has-text-centered">
-          <br><br>
+    <div class="container has-text-left">
             <h1 class="title">
-            MU Tech Support Bot
-        </h1>   
+            Have a Tech Issue?
+        </h1> 
+        <h2 class="subtitle">
+            The MU TechBot is designed to make dealing with tech problems a little easier for students. You can start by sending the TechBot a simple "hello" or you can go straight into the nitty gritty by saying what device you're having a problem with and what that issue is. For instance, "My computer won't start". The TechBot can help by giving you basic debugging solutions and if those don't work it can set up an appointment for you with Tiger Tech. The option to talk to the TechBot on the phone is also available, just call +1 240-258-7987.
+            <br><br>
+            The TechBot also knows a few special tricks so play around. And if you're feeling down about your broken tech, you can ask the TechBot to raise your spirits with some tech themed jokes. He may even give you some inspirational advice.
+        </h2>
+      </div>
+        <div class="container has-text-centered">
     <div id="message" ng-controller="MyCtrl">
-    {{appointment_text}}
-    <p>
-        Tiger Tech Walk Up Support Hours
-        Monday-Thursday: 8:00 a.m. - 7:00 p.m.
-        Friday: 9:00 a.m. - 6:00 p.m.
-        Saturday: 10:00 a.m. 6:00 p.m.
-        Sunday: Noon - 6:00 p.m.
-        Mizzou Phone Tech Support
-        Monday – Thursday: 7:30 a.m. – 10 p.m.
-        Friday: 7:30 a.m. – 6 p.m.
-        Saturday: 12 p.m. – 6 p.m.
-        Sunday: 12 p.m. – 8 p.m.
-    </p>
-
-    <ul>
-      <li ng-repeat="time in times track by $index">
-        Unavailable appointment: {{time}}
-      </li>
-    </ul>
     </div>
-
+<br>
     
     <iframe
     allow="microphone;"
-    width="350"
-    height="430"
+    width="370"
+    height="450"
     src="https://console.dialogflow.com/api-client/demo/embedded/acaa20f9-bfb1-48b3-a056-74177632020b">
     </iframe>
-        </div>
       </div>
+    </div>
       </section>
-  </body>
-</html>
+     
+      
+      <!-- Hours and Appointments -->
+ <div id="message" ng-controller="MyCtrl">
+    <section class="hero">
+  <div class="hero-body">
+     <div class="container">
+         <center> <strong> {{appointment_text}} </strong> </center>
+         <br><br> 
+         
+         <div class="columns">
+    <p>
+            <div class ="column">
+                <strong>Tiger Tech Walk Up Support Hours:</strong> <br>
+                Monday-Thursday: 8:00 a.m. - 7:00 p.m. <br>
+                Friday: 9:00 a.m. - 6:00 p.m. <br>
+                Saturday: 10:00 a.m. 6:00 p.m. <br>
+                Sunday: Noon - 6:00 p.m. <br>          
+             </div>
+
+             <div class="column">
+                <strong>Mizzou Phone Tech Support:</strong><br>
+                 Monday – Thursday: 7:30 a.m. – 10 p.m.<br>
+                 Friday: 7:30 a.m. – 6 p.m.<br>
+                 Saturday: 12 p.m. – 6 p.m.<br>
+                 Sunday: 12 p.m. – 8 p.m.<br>
+             </div> 
+
+    </p>
+         <div class ="column">
+    <ul>
+        <strong>Unavailable Appointments:</strong>
+      <li ng-repeat="time in times track by $index">
+           {{time}}
+      </li>
+    </ul>
+    </div>
+    </div>
+        </div>
+     </section>
+      </div>
+      
+<!-- What does the chatbot know -->
+    
+<section class="hero is-dark">
+  <div class="hero-body">
+     <div class="container">
+         <ul>
+         <h1 class="subtitle">
+             <strong> Still unsure what to ask? Here are some example phrases:</strong>
+         </h1>
+             <div class="columns">
+             
+                <div class="column">
+             <li>"Hello!"</li>
+             <li>"My computer won't turn on."</li>
+             <li>"I think my computer has a virus."</li>
+             <li>"How late is the help desk open?"</li>
+             <li>"When does Tiger Tech close?"</li>
+             <li>"Can I call the help desk?"</li>
+             <li>"My phone screen is cracked."</li>
+             <li>"How can I find Tiger Tech on the internet?"</li>
+             <li>"I want to make a Tiger Tech appointment"</li>
+             <li>"I want my appointment to be Friday at noon"</li>
+                 </div>
+                 
+                 <div class="column">
+             <li>"Tell me a joke."</li>
+             <li>"You are funny."</li>
+             <li>"How are you?"</li>
+             <li>"Who are you?"</li>
+             <li>"How old are you?"</li>
+             <li>"Do you have a hobby?"</li>
+             <li>"Are you hungry?"</li>
+             <li>"What do you mean?"</li>         
+             <li>"Give me some inspiration."</li>
+             <li>"Goodbye!"</li>
+                 </div>
+            
+             </div>
+             
+         </ul>
+         
+      </div>
+    </div>
+</section>
+      
+      
+<footer class="footer">
+  <div class="container has-text-centered">
+      <span style="font-size: 1.33em;">
+              <a class="icon is-medium" href="https://doit.missouri.edu/tech-support/the-mizzou-store-tigertech-service-desk/" target="_blank">
+          <i class="fas fa-info-circle has-text-dark"></i>
+        </a>
+              <a class="icon is-medium" href="https://support.apple.com/" target="_blank">
+          <i class="fab fa-apple has-text-dark"></i>
+        </a>
+        <a class="icon is-medium" href="https://www.dell.com/support/home/us/en/04" target="_blank">
+          <i class="fas fa-laptop has-text-dark"></i>
+        </a>
+      </span>
+    </div>
+                                                
+</footer>

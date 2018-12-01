@@ -14,7 +14,6 @@ firebase.initializeApp(config);
 var app=angular.module('app',['firebase'])
     app.controller('MyCtrl', function($firebaseArray,$scope){
 
-        $scope.something="hiii";
         $scope.appointment_text="";
         
         var today=new Date();
@@ -23,8 +22,6 @@ var app=angular.module('app',['firebase'])
         function list(user) {
             return firebase.firestore()
               .collection('test_database')
-              //.where('time','>', '2018-11-27T00:46:47-06:00')
-              //.where('name', '==', 'Tom')
               .get()
               .then(snapshot => {
                 const list = [];
@@ -44,7 +41,7 @@ var app=angular.module('app',['firebase'])
 
         list({ uid: 10 }).then((list) => {
             console.log(list);
-            $scope.appointment_text="Hi, " + $scope.name + ", your next appointment is schdueled for " + list[0].date +".";
+            $scope.appointment_text="Hi, " + $scope.name;
             $scope.time=list[0].date;
             console.log($scope.time);
             $scope.times=list;
